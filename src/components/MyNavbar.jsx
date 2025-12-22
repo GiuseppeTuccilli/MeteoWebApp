@@ -1,9 +1,7 @@
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { Form } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -41,28 +39,6 @@ const MyNavbar = () => {
                 Home
               </Link>
             </li>
-            {/*<li className="nav-item">
-              <Link
-                className={
-                  "nav-link " +
-                  (location.pathname === "/Previsioni" ? "active" : "")
-                }
-                to={"/Previsioni"}
-              >
-                Previsioni
-              </Link>
-            </li>
-            <li className="nav-item ">
-              <Link
-                className={
-                  "nav-link " +
-                  (location.pathname === "/Situazione" ? "active" : "")
-                }
-                to={"/Situazione"}
-              >
-                Situazione
-              </Link>
-            </li>*/}
           </ul>
           <form
             className="d-flex"

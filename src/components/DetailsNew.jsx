@@ -1,15 +1,23 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Alert, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Alert, Button, Col, Container, Row, Spinner } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Nav from "react-bootstrap/Nav";
+import Carousel from "react-bootstrap/Carousel";
 
 const DetailsNew = () => {
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const [active, setActive] = useState("0");
   const [dati, setDati] = useState(null);
+  const [index, setIndex] = useState(0);
+
   let endpoint = "";
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+    setActive(selectedIndex.toString());
+  };
 
   const oggi = new Date();
   let dayToShow = new Date(oggi);
@@ -29,10 +37,9 @@ const DetailsNew = () => {
   let quattroGg = new Date(oggi);
   quattroGg.setDate(quattroGg.getDate() + 4);
 
-  console.log(treGg.toString().slice(4, 10));
-
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params, active]);
 
   const getData = () => {
@@ -63,13 +70,14 @@ const DetailsNew = () => {
         setLoading(false);
 
         dayToShow.setDate(dayToShow.getDate() + Number(active));
-        console.log(dayToShow);
+
         annoString = dayToShow.getFullYear().toString();
         mese = dayToShow.getMonth() + 1;
         giorno = dayToShow.getDate();
 
         let meseString = "";
         let giornoString = "";
+
         if (mese < 10) {
           meseString = "0" + mese.toString();
         } else {
@@ -82,7 +90,6 @@ const DetailsNew = () => {
         }
 
         let dateString = annoString + "-" + meseString + "-" + giornoString;
-        console.log(dateString);
 
         setDati(data.list.filter((d) => d.dt_txt.startsWith(dateString)));
       })
@@ -114,7 +121,12 @@ const DetailsNew = () => {
       <Container>
         <Row className="d-flex justify-content-center">
           <Col xs={12} md={8}>
-            <Nav justify variant="tabs" defaultActiveKey="0">
+            <Nav
+              justify
+              variant="tabs"
+              defaultActiveKey="0"
+              className="d-none d-md-flex"
+            >
               <Nav.Item>
                 <Nav.Link
                   eventKey="0"
@@ -171,6 +183,49 @@ const DetailsNew = () => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
+            <Carousel
+              activeIndex={index}
+              onSelect={handleSelect}
+              interval={null}
+              indicators={false}
+              className="d-md-none bg-white "
+              prevIcon={
+                <Button className="border rounded-circle bg-transparent text-black fs-2">
+                  <i className="bi bi-chevron-double-left"></i>
+                </Button>
+              }
+              nextIcon={
+                <Button className="border rounded-circle bg-transparent text-black fs-2">
+                  <i className="bi bi-chevron-double-right"></i>
+                </Button>
+              }
+            >
+              <Carousel.Item>
+                <Alert className="m-0 text-center fw-bold rounded-0">
+                  Oggi
+                </Alert>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Alert className="m-0 text-center fw-bold rounded-0">
+                  {domani.toString().slice(4, 10)}
+                </Alert>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Alert className="m-0 text-center fw-bold rounded-0">
+                  {dueGg.toString().slice(4, 10)}
+                </Alert>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Alert className="m-0 text-center fw-bold rounded-0">
+                  {treGg.toString().slice(4, 10)}
+                </Alert>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Alert className="m-0 text-center fw-bold rounded-0">
+                  {quattroGg.toString().slice(4, 10)}
+                </Alert>
+              </Carousel.Item>
+            </Carousel>
             <Table>
               <thead>
                 <tr>
