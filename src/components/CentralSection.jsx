@@ -9,7 +9,6 @@ const CentralSection = () => {
       <CityCard city="new york" />
       <CityCard city="tokyo" />
       <CityCard city="london" />
-      <CityCard city="pechino" />
     </Row>
   );
 };
