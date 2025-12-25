@@ -63,14 +63,14 @@ const CityCard = (props) => {
       )}
       <Card className="bg-secondary text-white ">
         <Card.Img
-          style={{ height: "10em", objectFit: "cover" }}
+          style={{ height: "15em", objectFit: "cover" }}
           variant="top"
           src={img}
         />
         <Card.Body>
           {city !== null && (
             <>
-              <Card.Title>
+              <Card.Title className="m-0">
                 {city.name}{" "}
                 <img
                   src={
@@ -81,8 +81,12 @@ const CityCard = (props) => {
                 />
               </Card.Title>
 
-              <Card.Text>Temperarura: {city.main.temp}°C </Card.Text>
-              <Card.Text>Percepita: {city.main.feels_like} °C </Card.Text>
+              <Card.Text className="m-0">
+                Temperarura: {city.main.temp}°C{" "}
+              </Card.Text>
+              <Card.Text className="m-0">
+                Percepita: {city.main.feels_like} °C{" "}
+              </Card.Text>
               <Card.Text>Velocità vento: {city.wind.speed} </Card.Text>
               <Button
                 variant="primary"

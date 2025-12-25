@@ -100,19 +100,20 @@ const DetailsNew = () => {
   };
   return (
     <>
-      <Alert
-        className="pb-0"
-        variant="info d-flex flex-column justify-content-end"
-        style={{ height: "10em" }}
+      <div
+        style={{ height: "9em" }}
+        className="d-flex flex-column justify-content-end align-items-center border border-2 border-light bg-secondary-subtle mb-2"
       >
-        <Alert.Heading className="text-center">
-          Previsioni per{" "}
-          <span className="text-dark fw-bold">
-            {params.city.toUpperCase()}{" "}
-          </span>
-        </Alert.Heading>
-        <p className="text-center"></p>
-      </Alert>
+        <div className="text-center text-light  border border-2 border-primary mb-1 py-2 px-4 bg-secondary">
+          <h2>
+            Previsioni per{" "}
+            <span className="text-info fw-bold text-decoration-underline">
+              {params.city.toUpperCase()}{" "}
+            </span>
+          </h2>
+        </div>
+      </div>
+
       {loading && (
         <div className="text-center">
           <Spinner variant="danger" />
