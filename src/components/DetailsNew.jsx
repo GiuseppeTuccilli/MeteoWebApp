@@ -66,7 +66,6 @@ const DetailsNew = () => {
         }
       })
       .then((data) => {
-        console.log(data);
         setLoading(false);
 
         dayToShow.setDate(dayToShow.getDate() + Number(active));

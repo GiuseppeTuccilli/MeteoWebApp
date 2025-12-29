@@ -45,7 +45,6 @@ const CityCard = (props) => {
         }
       })
       .then((data) => {
-        console.log(data);
         setCity(data);
         setLoading(false);
       })

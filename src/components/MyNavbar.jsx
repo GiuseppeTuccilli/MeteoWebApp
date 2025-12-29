@@ -14,7 +14,7 @@ const MyNavbar = () => {
   return (
     <Navbar
       expand="lg"
-      className="bg-body-tertiary px-4 position-fixed z-1 w-100 "
+      className="bg-body-tertiary px-4 position-fixed z-2 w-100 "
       bg="dark"
       data-bs-theme="dark"
     >
