@@ -28,6 +28,7 @@ const CityCard = (props) => {
 
   useEffect(() => {
     getCity(props.city);
+    getWithAs("roma");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -35,7 +36,7 @@ const CityCard = (props) => {
     fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
         city +
-        "&appid=907082adf259a39f128ff2e434487c57&units=metric"
+        "&appid=907082adf259a39f128ff2e434487c57&units=metric",
     )
       .then((res) => {
         if (res.ok) {
@@ -51,6 +52,24 @@ const CityCard = (props) => {
       .catch((er) => {
         alert("errore nel recupero dati meteo attuale", er);
       });
+  };
+
+  const getWithAs = async function (city) {
+    try {
+      let res = await fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&appid=907082adf259a39f128ff2e434487c57&units=metric",
+      );
+      if (!res.ok) {
+        throw new Error("erore");
+      }
+      console.log(res);
+      let data = await res.json();
+      console.log(data);
+    } catch (er) {
+      console.log("errore " + er);
+    }
   };
 
   return (
