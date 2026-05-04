@@ -1,5 +1,5 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./style/custom-bootstrap.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import MyNavbar from "./components/MyNavbar.jsx";
