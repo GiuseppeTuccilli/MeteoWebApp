@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CentralSection from "./components/CentralSection.jsx";
 import Welcome from "./components/Welcome.jsx";
 import DetailsNew from "./components/DetailsNew.jsx";
+import Map from "./components/Map.jsx";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             />
             <Route path="/:city/:country" element={<DetailsNew />} />
             <Route path="/:city" element={<DetailsNew />} />
+            <Route path="/map" element={<Map />} />
           </Routes>
         </Container>
       </BrowserRouter>
