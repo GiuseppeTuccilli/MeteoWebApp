@@ -9,6 +9,7 @@ import CentralSection from "./components/CentralSection.jsx";
 import Welcome from "./components/Welcome.jsx";
 import DetailsNew from "./components/DetailsNew.jsx";
 import Map from "./components/Map.jsx";
+import CarouselSection from "./components/CarouselSection.jsx";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               element={
                 <>
                   <Welcome />
-                  <CentralSection />
+                  <CarouselSection />
                 </>
               }
             />
