@@ -99,10 +99,7 @@ const DetailsNew = () => {
   };
   return (
     <>
-      <div
-        style={{ height: "9em" }}
-        className="d-flex flex-column justify-content-end align-items-center border border-2 border-light bg-secondary-subtle mb-2"
-      >
+      <div className="d-flex flex-column justify-content-end align-items-center border border-2 border-light bg-secondary-subtle mb-2">
         <div className="text-center text-light  border border-2 border-primary mb-1 py-2 px-4 bg-secondary">
           <h2>
             Previsioni per{" "}

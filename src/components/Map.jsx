@@ -1,4 +1,30 @@
+import { useEffect } from "react";
+
 const Map = function () {
+  const key = "907082adf259a39f128ff2e434487c57&units=metric";
+  const city = "lazio";
+  const endpoint =
+    "http://api.openweathermap.org/geo/1.0/direct?limit=5&q=" +
+    city +
+    "&appid=907082adf259a39f128ff2e434487c57&units=metric";
+
+  const getWheater = async function () {
+    try {
+      const res = await fetch(endpoint);
+      if (!res.ok) {
+        throw new Error("errore nella response");
+      }
+      const data = await res.json();
+      console.log(data);
+    } catch (er) {
+      console.log(er);
+    }
+  };
+
+  useEffect(() => {
+    getWheater();
+  }, []);
+
   return (
     <>
       {" "}
@@ -12,7 +38,7 @@ const Map = function () {
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 610.30981 792.58575"
         //style="width: 610.31px; transform: scale(0.828932);"
-        style={{ width: "610.31px", transform: "scale(0.828932)" }}
+        // style={{ width: "610.31px", transform: "scale(0.828932)" }}
       >
         <path
           d="m 299.30021,372.14051 -0.11,-0.11 -0.1,0.03 -0.17,0.04 -0.16,0.26 -0.03,0.06 0.06,0.08 0.06,-0.02 0.26,0.06 0.2,-0.08 0.02,-0.06 -0.04,-0.08 z"

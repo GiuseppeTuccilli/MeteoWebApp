@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <MyNavbar />
 
-        <Container className="shadow pb-3">
+        <Container className="shadow pb-3 mainContainer ">
           <Routes>
             <Route
               path="/"

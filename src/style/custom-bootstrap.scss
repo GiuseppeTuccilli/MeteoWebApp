@@ -1,4 +1,14 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 
+$navHeight: 4.5rem;
+
+nav {
+  height: $navHeight;
+}
+
+.mainContainer {
+  padding-top: $navHeight;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
