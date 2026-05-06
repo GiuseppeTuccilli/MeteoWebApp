@@ -6,7 +6,7 @@ const CarouselSection = function () {
       controls={false}
       indicators={false}
       className=" p-3"
-      interval={2500}
+      interval={3000}
     >
       <Carousel.Item>
         <CityItem city={"roma"} />

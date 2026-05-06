@@ -50,19 +50,10 @@ const CityItem = function (props) {
           ) : (
             <>
               <div className="d-flex justify-content-between align-items-center mt-2">
-                <div className="d-flex align-items-center justify-content-center ">
-                  <h3 className="m-0">{cityWheater.name}</h3>
-                  <img
-                    src={
-                      "https://openweathermap.org/img/wn/" +
-                      cityWheater.weather[0].icon +
-                      ".png"
-                    }
-                  />
-                  <p className="text-center fs-5  m-0">
-                    ({cityWheater.weather[0].description})
-                  </p>
-                </div>
+                <h3 className="m-0 text-decoration-underline">
+                  {cityWheater.name}
+                </h3>
+
                 <button className="btn btn-primary fw-bold">
                   Previsioni <i className="bi bi-box-arrow-up-right"></i>
                 </button>
@@ -101,6 +92,19 @@ const CityItem = function (props) {
                   </p>
                 </Col>
               </Row>
+              <div className="d-flex align-items-center justify-content-center">
+                <h4 className="m-0">Condizioni Meteo: </h4>{" "}
+                <img
+                  src={
+                    "https://openweathermap.org/img/wn/" +
+                    cityWheater.weather[0].icon +
+                    ".png"
+                  }
+                />
+                <p className="text-center fs-5  m-0">
+                  ({cityWheater.weather[0].description})
+                </p>
+              </div>
             </>
           )}
         </Col>
