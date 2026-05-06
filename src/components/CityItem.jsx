@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { getCoordinates, getWheater } from "../files/functions";
 import { Col, Row, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CityItem = function (props) {
   const [loading, setLoading] = useState(true);
   const [cityWheater, setCityWheater] = useState(null);
+  const [cord, setCord] = useState({});
+  const navigate = useNavigate();
 
   const city = props.city;
 
@@ -20,6 +23,8 @@ const CityItem = function (props) {
         lon: itCity.lon,
       };
 
+      setCord(cor);
+
       const data = await getWheater(cor);
       setCityWheater(data);
       setLoading(false);
@@ -27,6 +32,10 @@ const CityItem = function (props) {
       console.log(er);
       setLoading(false);
     }
+  };
+
+  const goDetails = function () {
+    navigate("/current/" + cord.lat + "/" + cord.lon);
   };
 
   useEffect(() => {
@@ -55,7 +64,10 @@ const CityItem = function (props) {
                 </h3>
                 <div className="d-flex align-items-center justify-content-center ">
                   <div className="me-2">
-                    <button className="btn btn-primary fw-bold">
+                    <button
+                      className="btn btn-primary fw-bold"
+                      onClick={goDetails}
+                    >
                       Dettagli <i className="bi bi-box-arrow-up-right"></i>
                     </button>
                   </div>
