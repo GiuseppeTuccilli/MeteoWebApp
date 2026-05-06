@@ -15,4 +15,12 @@ nav {
   height: 4rem !important;
 }
 
+.subSearch:hover {
+  background-color: $gray-200 !important;
+}
+
+.results {
+  height: 10rem;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

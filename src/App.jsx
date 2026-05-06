@@ -12,6 +12,7 @@ import Map from "./components/Map.jsx";
 import CarouselSection from "./components/CarouselSection.jsx";
 import CurrentWheater from "./components/CurrentWheater.jsx";
 import Forecast from "./components/Forecast.jsx";
+import SearchComponent from "./components/SearchComponent.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               path="/"
               element={
                 <>
+                  <SearchComponent />
                   <Welcome />
                   <CarouselSection />
                 </>
