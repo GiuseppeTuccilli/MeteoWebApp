@@ -51,12 +51,20 @@ const CityItem = function (props) {
             <>
               <div className="d-flex justify-content-between align-items-center mt-2">
                 <h3 className="m-0 text-decoration-underline">
-                  {cityWheater.name}
+                  {cityWheater.name}{" "}
                 </h3>
-
-                <button className="btn btn-primary fw-bold">
-                  Previsioni <i className="bi bi-box-arrow-up-right"></i>
-                </button>
+                <div className="d-flex align-items-center justify-content-center ">
+                  <div className="me-2">
+                    <button className="btn btn-primary fw-bold">
+                      Dettagli <i className="bi bi-box-arrow-up-right"></i>
+                    </button>
+                  </div>
+                  <div>
+                    <button className="btn btn-primary fw-bold">
+                      Previsioni <i className="bi bi-box-arrow-up-right"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
               <Row className="justify-content-center text-dark bg-secondary-subtle p-2 g-1 my-2 ">
                 <Col xs={6}>
