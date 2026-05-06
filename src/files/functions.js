@@ -45,3 +45,48 @@ export const getWheater = async function (cor) {
     return "errore";
   }
 };
+
+export const getForecast = async function (cor) {
+  const endpoint =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    cor.lat +
+    "&lon=" +
+    cor.lon +
+    "&appid=" +
+    key +
+    "&units=metric&lang=it";
+
+  try {
+    const res = await fetch(endpoint);
+    if (!res.ok) {
+      throw new Error("errore nella reponse");
+    }
+    const data = await res.json();
+    console.log(data);
+    return data;
+  } catch (er) {
+    console.log("errore: " + er);
+    return "errore";
+  }
+};
+
+export const stringToDate = function (s) {
+  const data = new Date();
+  let s1 = "";
+  if (s.length > 10) {
+    s1 = s.slice(0, 10);
+  } else {
+    s1 = s;
+  }
+
+  const dateArray = [];
+
+  const sDate = s1.split("-");
+  for (let i = 0; i < sDate.length; i++) {
+    dateArray.push(parseInt(sDate[i]));
+  }
+
+  data.setFullYear(dateArray[0], dateArray[1] - 1, dateArray[2]);
+
+  return data;
+};

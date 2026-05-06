@@ -11,6 +11,7 @@ import DetailsNew from "./components/DetailsNew.jsx";
 import Map from "./components/Map.jsx";
 import CarouselSection from "./components/CarouselSection.jsx";
 import CurrentWheater from "./components/CurrentWheater.jsx";
+import Forecast from "./components/Forecast.jsx";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/:city" element={<DetailsNew />} />
             <Route path="/map" element={<Map />} />
             <Route path="/current/:lat/:lon" element={<CurrentWheater />} />
+            <Route path="/forecast/:lat/:lon" element={<Forecast />} />
           </Routes>
         </Container>
       </BrowserRouter>
