@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getWheater } from "../files/functions";
 import { Col, Row, Spinner } from "react-bootstrap";
 
 const CurrentWheater = function () {
   const params = useParams();
+  const navigate = useNavigate();
   const [wheater, setWheater] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -149,7 +150,12 @@ const CurrentWheater = function () {
               </Row>
             </Row>
             <div className=" d-flex align-items-center justify-content-center">
-              <button className="btn btn-primary fw-bold fs-5 ">
+              <button
+                className="btn btn-primary fw-bold fs-5 "
+                onClick={() => {
+                  navigate("/forecast/" + cor.lat + "/" + cor.lon);
+                }}
+              >
                 Vedi Previsioni
               </button>
             </div>

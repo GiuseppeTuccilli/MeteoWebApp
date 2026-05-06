@@ -38,6 +38,10 @@ const CityItem = function (props) {
     navigate("/current/" + cord.lat + "/" + cord.lon);
   };
 
+  const goForecast = function () {
+    navigate("/forecast/" + cord.lat + "/" + cord.lon);
+  };
+
   useEffect(() => {
     initCity();
   }, []);
@@ -72,7 +76,10 @@ const CityItem = function (props) {
                     </button>
                   </div>
                   <div>
-                    <button className="btn btn-primary fw-bold">
+                    <button
+                      className="btn btn-primary fw-bold"
+                      onClick={goForecast}
+                    >
                       Previsioni <i className="bi bi-box-arrow-up-right"></i>
                     </button>
                   </div>

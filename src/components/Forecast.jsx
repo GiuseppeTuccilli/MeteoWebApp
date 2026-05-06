@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getForecast, stringToDate } from "../files/functions";
 import Nav from "react-bootstrap/Nav";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Button, Alert } from "react-bootstrap";
+import ForecastTab from "./ForecastTab";
+import Carousel from "react-bootstrap/Carousel";
 
 const Forecast = function () {
   const params = useParams();
@@ -10,6 +12,8 @@ const Forecast = function () {
   const [forecast, setForecast] = useState(null);
   const [forecastArray, setForecastArray] = useState([]);
   const [active, setActive] = useState("0");
+  const [firstRender, setFirstRender] = useState(true);
+  const [index, setIndex] = useState(0);
 
   const cor = {
     lat: params.lat,
@@ -36,11 +40,18 @@ const Forecast = function () {
     setForecastArray(ar);
   };
 
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+    setActive(selectedIndex.toString());
+  };
+
   const initPage = async function () {
     try {
       const data = await getForecast(cor);
       setForecast(data);
-      handleForecastArray(today, data.list);
+      const dayToShow = new Date();
+      dayToShow.setDate(today.getDate() + parseInt(active));
+      handleForecastArray(dayToShow, data.list);
       setLoading(false);
     } catch (er) {
       console.log(er);
@@ -49,8 +60,15 @@ const Forecast = function () {
   };
 
   useEffect(() => {
-    initPage();
-  }, []);
+    if (firstRender) {
+      initPage();
+      setFirstRender(false);
+    } else {
+      const dayToShow = new Date();
+      dayToShow.setDate(today.getDate() + parseInt(active));
+      handleForecastArray(dayToShow, forecast.list);
+    }
+  }, [active]);
 
   return (
     <>
@@ -60,8 +78,8 @@ const Forecast = function () {
           <Spinner />
         </div>
       ) : (
-        <>
-          <div className="d-flex  text-white align-items-center  ">
+        <div className="bg-success p-3">
+          <div className="d-flex  text-white align-items-center mb-2  ">
             <div className="p-2 border border-1 border-secondary-subtle bg-secondary h4rem d-flex align-items-center flex-grow-1 justify-content-center">
               <h2 className="m-0">
                 Città:{" "}
@@ -90,8 +108,11 @@ const Forecast = function () {
                 eventKey="0"
                 onClick={() => {
                   setActive("0");
+                  setIndex(0);
                 }}
-                className="fw-bold"
+                className={
+                  "fw-bold " + (active === "0" ? "text-dark" : "text-light")
+                }
               >
                 Oggi
               </Nav.Link>
@@ -101,8 +122,11 @@ const Forecast = function () {
                 eventKey="1"
                 onClick={() => {
                   setActive("1");
+                  setIndex(1);
                 }}
-                className="fw-bold"
+                className={
+                  "fw-bold " + (active === "1" ? "text-dark" : "text-light")
+                }
               >
                 {secondDay.toString().slice(4, 10)}
               </Nav.Link>
@@ -112,8 +136,11 @@ const Forecast = function () {
                 eventKey="2"
                 onClick={() => {
                   setActive("2");
+                  setIndex(2);
                 }}
-                className="fw-bold"
+                className={
+                  "fw-bold " + (active === "2" ? "text-dark" : "text-light")
+                }
               >
                 {thirdDay.toString().slice(4, 10)}
               </Nav.Link>
@@ -123,8 +150,11 @@ const Forecast = function () {
                 eventKey="3"
                 onClick={() => {
                   setActive("3");
+                  setIndex(3);
                 }}
-                className="fw-bold"
+                className={
+                  "fw-bold " + (active === "3" ? "text-dark" : "text-light")
+                }
               >
                 {fourthDay.toString().slice(4, 10)}
               </Nav.Link>
@@ -134,14 +164,60 @@ const Forecast = function () {
                 eventKey="4"
                 onClick={() => {
                   setActive("4");
+                  setIndex(4);
                 }}
-                className="fw-bold"
+                className={
+                  "fw-bold " + (active === "4" ? "text-dark" : "text-light")
+                }
               >
                 {fifthDay.toString().slice(4, 10)}
               </Nav.Link>
             </Nav.Item>
           </Nav>
-        </>
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={null}
+            indicators={false}
+            className="d-md-none bg-white "
+            prevIcon={
+              <Button className="border rounded-circle bg-transparent text-black fs-2">
+                <i className="bi bi-chevron-double-left"></i>
+              </Button>
+            }
+            nextIcon={
+              <Button className="border rounded-circle bg-transparent text-black fs-2">
+                <i className="bi bi-chevron-double-right"></i>
+              </Button>
+            }
+          >
+            <Carousel.Item>
+              <Alert className="m-0 text-center fw-bold rounded-0">Oggi</Alert>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Alert className="m-0 text-center fw-bold rounded-0">
+                {secondDay.toString().slice(4, 10)}
+              </Alert>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Alert className="m-0 text-center fw-bold rounded-0">
+                {thirdDay.toString().slice(4, 10)}
+              </Alert>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Alert className="m-0 text-center fw-bold rounded-0">
+                {fourthDay.toString().slice(4, 10)}
+              </Alert>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Alert className="m-0 text-center fw-bold rounded-0">
+                {fifthDay.toString().slice(4, 10)}
+              </Alert>
+            </Carousel.Item>
+          </Carousel>
+
+          <ForecastTab foreArray={forecastArray} />
+        </div>
       )}
     </>
   );
