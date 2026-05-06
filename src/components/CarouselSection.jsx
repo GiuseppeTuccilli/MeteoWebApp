@@ -5,17 +5,17 @@ const CarouselSection = function () {
     <Carousel
       controls={false}
       indicators={false}
-      className="bg-secondary"
+      className=" p-3"
       interval={2500}
     >
       <Carousel.Item>
         <CityItem city={"roma"} />
       </Carousel.Item>
       <Carousel.Item>
-        <img src="https://placecats.com/300/500" />
+        <CityItem city={"milano"} />
       </Carousel.Item>
       <Carousel.Item>
-        <img src="https://placecats.com/300/500" />
+        <CityItem city={"napoli"} />
       </Carousel.Item>
     </Carousel>
   );
