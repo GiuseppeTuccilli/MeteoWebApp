@@ -1,5 +1,4 @@
 const key = import.meta.env.VITE_API_KEY;
-//const key = "kjhkjh";
 
 export const getCoordinates = async function (city) {
   const endpoint =
@@ -66,7 +65,7 @@ export const getForecast = async function (cor) {
     return data;
   } catch (er) {
     console.log("errore: " + er);
-    return "errore: " + er;
+    throw new Error("errore: " + er);
   }
 };
 

@@ -14,6 +14,8 @@ const Forecast = function () {
   const [active, setActive] = useState("0");
   const [firstRender, setFirstRender] = useState(true);
   const [index, setIndex] = useState(0);
+  const [error, setError] = useState(false);
+  const [errorMes, setErrorMes] = useState("");
 
   const cor = {
     lat: params.lat,
@@ -53,9 +55,12 @@ const Forecast = function () {
       dayToShow.setDate(today.getDate() + parseInt(active));
       handleForecastArray(dayToShow, data.list);
       setLoading(false);
+      setError(false);
     } catch (er) {
       console.log(er);
       setLoading(false);
+      setError(true);
+      setErrorMes(er.toString());
     }
   };
 
@@ -77,6 +82,10 @@ const Forecast = function () {
         <div className="d-flex justify-content-center mt-3">
           <Spinner />
         </div>
+      ) : error ? (
+        <Alert variant="danger" className="text-center">
+          {errorMes}
+        </Alert>
       ) : (
         <div className="bg-success p-3 pt-0">
           <div className="d-flex align-items-center mb-2  ">
