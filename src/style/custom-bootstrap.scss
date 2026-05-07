@@ -5,6 +5,31 @@ $navHeight: 4.5rem;
 
 nav {
   height: $navHeight;
+  background-color: #2b3035;
+  transition: 0.8s height ease;
+}
+
+nav img {
+  height: 3.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: $gray-100;
+}
+
+nav a:hover {
+  color: $yellow-200 !important;
+}
+
+.linkAttivo {
+  color: $yellow-200 !important;
+  text-decoration: underline;
+}
+
+.navTog {
+  height: 3.5rem;
+  width: 3.5rem;
 }
 
 .mainContainer {
@@ -29,6 +54,10 @@ nav {
 
 .height20rem {
   height: 20rem;
+}
+
+.height12rem {
+  height: 12.5rem;
 }
 
 .searchDiv {

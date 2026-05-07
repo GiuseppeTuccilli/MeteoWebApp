@@ -14,12 +14,13 @@ import CurrentWheater from "./components/CurrentWheater.jsx";
 import Forecast from "./components/Forecast.jsx";
 import PrevisioniPage from "./components/PrevisioniPage.jsx";
 import CurrentPage from "./components/CurrentPage.jsx";
+import NewNavbar from "./components/NewNavbar.jsx";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <MyNavbar />
+        <NewNavbar />
 
         <Container className="shadow pb-3 mainContainer vh-100">
           <Routes>
