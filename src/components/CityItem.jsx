@@ -80,7 +80,7 @@ const CityItem = function (props) {
                   <div className="d-flex align-items-center justify-content-center ">
                     <div className="me-2">
                       <button
-                        className="btn btn-primary fw-bold rounded-pill"
+                        className="btn btn-primary fw-bold rounded-pill "
                         onClick={goDetails}
                       >
                         Dettagli <i className="bi bi-box-arrow-up-right"></i>

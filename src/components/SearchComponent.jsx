@@ -84,8 +84,9 @@ const SearchComponent = function (props) {
         </Form>
         <div className="d-flex my-1 justify-content-center ">
           <button
+            disabled={(selCord.lat === null || selCord.lon === null) && true}
             className={
-              "btn btn-primary fw-bold rounded-pill flex-grow-1  " +
+              "btn btn-primary  fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
               (current === false && " d-none ")
             }
@@ -94,8 +95,9 @@ const SearchComponent = function (props) {
             Meteo <i className="bi bi-box-arrow-up-right"></i>
           </button>
           <button
+            disabled={(selCord.lat === null || selCord.lon === null) && true}
             className={
-              "btn btn-primary fw-bold rounded-pill flex-grow-1  " +
+              "btn btn-primary  fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
               (forecast === false && " d-none ")
             }

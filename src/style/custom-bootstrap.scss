@@ -3,6 +3,16 @@
 
 $navHeight: 4.5rem;
 $navColor: #2b3035;
+$blu-scuro: #203e91;
+$blu-chiaro: #14509f;
+$blu-chiaro2: #1960bc;
+$primary: $blu-chiaro2;
+$success: #72a860;
+
+$my-theme-colors: (
+  "primary": $primary,
+  "success": $success,
+);
 
 #root {
   height: 100vh;
@@ -50,6 +60,11 @@ nav a:hover {
   width: 3.5rem;
 }
 
+button:not(nav button) {
+  -webkit-box-shadow: 0px 8px 26px -13px rgba(0, 0, 0, 0.84);
+  box-shadow: 0px 8px 26px -13px rgba(0, 0, 0, 0.84);
+}
+
 .mainContainer {
   padding-top: $navHeight;
 }
@@ -94,5 +109,10 @@ nav a:hover {
 .myFooter a:hover {
   color: $gray-200;
 }
+
+$theme-colors: map-merge(
+  $map1: $theme-colors,
+  $map2: $my-theme-colors,
+);
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
