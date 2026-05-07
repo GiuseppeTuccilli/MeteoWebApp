@@ -1,4 +1,5 @@
 const key = import.meta.env.VITE_API_KEY;
+//const key = "kjhkjh";
 
 export const getCoordinates = async function (city) {
   const endpoint =
@@ -11,13 +12,13 @@ export const getCoordinates = async function (city) {
   try {
     const res = await fetch(endpoint);
     if (!res.ok) {
-      throw new Error("errore nella response");
+      throw new Error(" errore nella response");
     }
     const data = await res.json();
     console.log(data);
     return data;
   } catch (er) {
-    return "errore recupero coordinate" + er;
+    throw new Error("errore recupero coordinate " + er);
   }
 };
 

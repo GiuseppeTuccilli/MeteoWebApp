@@ -88,7 +88,7 @@ const NewNavbar = function () {
           </li>
         </ul>
         <img
-          className="m-0 rounded-1 d-none d-lg-inline"
+          className="m-0 d-none d-lg-inline rounded-circle"
           src="https://media.istockphoto.com/id/1219159429/it/vettoriale/icona-meteo-isolata-su-sfondo-bianco-vettore-simbolo-meteorologico-icona-meteo-logo-meteo.jpg?s=612x612&w=0&k=20&c=zaq0zbd8pvn1tZYUjEsSX8htsru7NY01J2Y7626gszI="
         />
       </nav>

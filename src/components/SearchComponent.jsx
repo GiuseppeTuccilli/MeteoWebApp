@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Alert, Col, Row } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { getCoordinates } from "../files/functions";
@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 const SearchComponent = function (props) {
   const [results, setResults] = useState(null);
   const [text, setText] = useState("");
+  const [error, setError] = useState(false);
+  const [errorMes, setErrorMes] = useState("");
   const [selCord, setSelCord] = useState({
     lat: null,
     lon: null,
@@ -38,8 +40,11 @@ const SearchComponent = function (props) {
       const data = await getCoordinates(text);
       setResults(data);
       console.log(data);
+      setError(false);
     } catch (er) {
       console.log(er);
+      setError(true);
+      setErrorMes(er.toString());
     }
   };
 
@@ -101,6 +106,11 @@ const SearchComponent = function (props) {
         </div>
         <div className="results border border-2 border-secondary rounded-4 p-2">
           <div className="h-100 overflow-y-scroll">
+            {error && (
+              <Alert variant="danger" className="text-center">
+                {errorMes}
+              </Alert>
+            )}
             {results !== null &&
               results.map((el) => {
                 return (
