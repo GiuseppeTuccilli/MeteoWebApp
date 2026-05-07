@@ -77,13 +77,12 @@ const SearchComponent = function (props) {
             </FloatingLabel>
           </div>
         </Form>
-        <div className="d-flex justify-content-evenly my-1 ">
+        <div className="d-flex my-1 justify-content-center ">
           <button
             className={
-              "btn btn-primary fw-bold " +
+              "btn btn-primary fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
-              (current === false && " d-none ") +
-              (forecast === false && " flex-grow-1 rounded-pill ")
+              (current === false && " d-none ")
             }
             onClick={goCurrent}
           >
@@ -91,10 +90,9 @@ const SearchComponent = function (props) {
           </button>
           <button
             className={
-              "btn btn-primary fw-bold  " +
+              "btn btn-primary fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
-              (forecast === false && " d-none ") +
-              (current === false && " flex-grow-1 rounded-pill ")
+              (forecast === false && " d-none ")
             }
             onClick={goForecast}
           >

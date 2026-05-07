@@ -2,10 +2,22 @@
 @import "../../node_modules/bootstrap/scss/variables";
 
 $navHeight: 4.5rem;
+$navColor: #2b3035;
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    1deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(64, 203, 237, 1) 100%
+  );
+}
 
 nav {
   height: $navHeight;
-  background-color: #2b3035;
+  background-color: $navColor;
   transition: 0.8s height ease;
 }
 
@@ -68,6 +80,19 @@ nav a:hover {
 
 .searchDiv {
   transition: 0.8s ease;
+}
+
+.myFooter {
+  background-color: $navColor;
+  height: 5rem;
+}
+.myFooter a {
+  text-decoration: none;
+  color: $gray-500;
+}
+
+.myFooter a:hover {
+  color: $gray-200;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

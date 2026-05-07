@@ -10,13 +10,14 @@ import Forecast from "./components/Forecast.jsx";
 import PrevisioniPage from "./components/PrevisioniPage.jsx";
 import CurrentPage from "./components/CurrentPage.jsx";
 import NewNavbar from "./components/NewNavbar.jsx";
+import MyFooter from "./components/MyFooter.jsx";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <NewNavbar />
-        <Container className="shadow pb-3 mainContainer vh-100">
+        <Container className="shadow pb-3 mainContainer flex-grow-1">
           <Routes>
             <Route
               path="/"
@@ -33,6 +34,7 @@ function App() {
             <Route path="/forecast/:lat/:lon" element={<Forecast />} />
           </Routes>
         </Container>
+        <MyFooter />
       </BrowserRouter>
     </>
   );

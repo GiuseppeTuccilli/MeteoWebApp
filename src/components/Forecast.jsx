@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getForecast, stringToDate } from "../files/functions";
+import { getForecast } from "../files/functions";
 import Nav from "react-bootstrap/Nav";
 import { Spinner, Button, Alert } from "react-bootstrap";
 import ForecastTab from "./ForecastTab";
