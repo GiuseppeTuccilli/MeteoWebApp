@@ -68,7 +68,8 @@ const NewNavbar = function () {
             <Link
               to={"/forecast"}
               className={
-                " fs-5 " + (location.pathname === "/forecast" && "linkAttivo")
+                " fs-5 " +
+                (location.pathname.startsWith("/forecast") && "linkAttivo")
               }
             >
               Previsioni
@@ -78,7 +79,8 @@ const NewNavbar = function () {
             <Link
               to={"/current"}
               className={
-                " fs-5 " + (location.pathname === "/current" && "linkAttivo")
+                " fs-5 " +
+                (location.pathname.startsWith("/current") && "linkAttivo")
               }
             >
               Corrente

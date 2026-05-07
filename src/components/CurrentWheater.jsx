@@ -36,23 +36,21 @@ const CurrentWheater = function () {
           <Spinner variant="primary" />
         </div>
       ) : (
-        <div className="bg-success p-3">
-          <div className="d-flex  text-white align-items-center  ">
-            <div className="p-2 border border-1 border-secondary-subtle bg-secondary h4rem d-flex align-items-center flex-grow-1 justify-content-center">
+        <div className="bg-success p-3 pt-0">
+          <div className="d-flex align-items-center  ">
+            <div className="p-2 border border-1 border-secondary bg-secondary-subtle h4rem d-flex align-items-center flex-grow-1 justify-content-evenly">
               <h2 className="m-0">
-                Città:{" "}
-                <span className="text-decoration-underline text-info">
+                name:{" "}
+                <span className="text-decoration-underline text-primary fw-bold">
                   {wheater.name}
                 </span>
               </h2>
-            </div>
-            <div className="p-2 border-border-1 border-secondary bg-primary-subtle text-dark h4rem d-flex align-items-center">
-              <h3 className="m-0">
-                Paese:{" "}
-                <span className="text-decoration-underline">
+              <h2 className="m-0">
+                country:{" "}
+                <span className="text-decoration-underline text-primary fw-bold">
                   {wheater.sys.country}
                 </span>
-              </h3>
+              </h2>
             </div>
           </div>
           <div className="d-flex align-items-center justify-content-center text-light my-2 border-bottom border-2 border-secondary-subtle ">
