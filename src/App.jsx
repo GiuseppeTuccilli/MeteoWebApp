@@ -12,6 +12,8 @@ import Map from "./components/Map.jsx";
 import CarouselSection from "./components/CarouselSection.jsx";
 import CurrentWheater from "./components/CurrentWheater.jsx";
 import Forecast from "./components/Forecast.jsx";
+import PrevisioniPage from "./components/PrevisioniPage.jsx";
+import CurrentPage from "./components/CurrentPage.jsx";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/:city/:country" element={<DetailsNew />} />
             <Route path="/:city" element={<DetailsNew />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/forecast" element={<PrevisioniPage />} />
+            <Route path="/current" element={<CurrentPage />} />
             <Route path="/current/:lat/:lon" element={<CurrentWheater />} />
             <Route path="/forecast/:lat/:lon" element={<Forecast />} />
           </Routes>

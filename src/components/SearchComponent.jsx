@@ -5,13 +5,23 @@ import Form from "react-bootstrap/Form";
 import { getCoordinates } from "../files/functions";
 import { useNavigate } from "react-router-dom";
 
-const SearchComponent = function () {
+const SearchComponent = function (props) {
   const [results, setResults] = useState(null);
   const [text, setText] = useState("");
   const [selCord, setSelCord] = useState({
     lat: null,
     lon: null,
   });
+  let forecast = true;
+  let current = true;
+
+  if (props.forecast !== undefined && props.forecast === false) {
+    forecast = false;
+  }
+  if (props.current !== undefined && props.current === false) {
+    current = false;
+  }
+  console.log(current);
 
   const navigate = useNavigate();
 
@@ -71,7 +81,9 @@ const SearchComponent = function () {
           <button
             className={
               "btn btn-primary fw-bold " +
-              ((selCord.lat === null || selCord.lon === null) && "opacity-0")
+              ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
+              (current === false && " d-none ") +
+              (forecast === false && " flex-grow-1 rounded-pill ")
             }
             onClick={goCurrent}
           >
@@ -79,8 +91,10 @@ const SearchComponent = function () {
           </button>
           <button
             className={
-              "btn btn-primary fw-bold " +
-              ((selCord.lat === null || selCord.lon === null) && "opacity-0")
+              "btn btn-primary fw-bold  " +
+              ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
+              (forecast === false && " d-none ") +
+              (current === false && " flex-grow-1 rounded-pill ")
             }
             onClick={goForecast}
           >
