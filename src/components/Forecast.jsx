@@ -81,18 +81,18 @@ const Forecast = function () {
         <div className="bg-success p-3 pt-0">
           <div className="d-flex align-items-center mb-2  ">
             <div className="p-2 border border-1 border-secondary bg-secondary-subtle h4rem d-flex align-items-center flex-grow-1 justify-content-evenly">
-              <h2 className="m-0">
+              <h3 className="m-0">
                 name:{" "}
                 <span className="text-decoration-underline text-primary fw-bold">
                   {forecast.city.name}
                 </span>
-              </h2>
-              <h2 className="m-0">
+              </h3>
+              <h3 className="m-0">
                 country:{" "}
                 <span className="text-decoration-underline text-primary fw-bold">
                   {forecast.city.country}
                 </span>
-              </h2>
+              </h3>
             </div>
           </div>
           <Nav

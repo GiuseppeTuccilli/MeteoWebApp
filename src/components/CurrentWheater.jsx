@@ -39,18 +39,18 @@ const CurrentWheater = function () {
         <div className="bg-success p-3 pt-0">
           <div className="d-flex align-items-center  ">
             <div className="p-2 border border-1 border-secondary bg-secondary-subtle h4rem d-flex align-items-center flex-grow-1 justify-content-evenly">
-              <h2 className="m-0">
+              <h3 className="m-0">
                 name:{" "}
                 <span className="text-decoration-underline text-primary fw-bold">
                   {wheater.name}
                 </span>
-              </h2>
-              <h2 className="m-0">
+              </h3>
+              <h3 className="m-0">
                 country:{" "}
                 <span className="text-decoration-underline text-primary fw-bold">
                   {wheater.sys.country}
                 </span>
-              </h2>
+              </h3>
             </div>
           </div>
           <div className="d-flex align-items-center justify-content-center text-light my-2 border-bottom border-2 border-secondary-subtle ">
