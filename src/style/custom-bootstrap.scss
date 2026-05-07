@@ -23,4 +23,16 @@ nav {
   height: 10rem;
 }
 
+.height0 {
+  height: 0;
+}
+
+.height20rem {
+  height: 20rem;
+}
+
+.searchDiv {
+  transition: 0.8s ease;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

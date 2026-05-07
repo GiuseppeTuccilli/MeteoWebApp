@@ -12,7 +12,6 @@ import Map from "./components/Map.jsx";
 import CarouselSection from "./components/CarouselSection.jsx";
 import CurrentWheater from "./components/CurrentWheater.jsx";
 import Forecast from "./components/Forecast.jsx";
-import SearchComponent from "./components/SearchComponent.jsx";
 
 function App() {
   return (
@@ -20,13 +19,12 @@ function App() {
       <BrowserRouter>
         <MyNavbar />
 
-        <Container className="shadow pb-3 mainContainer ">
+        <Container className="shadow pb-3 mainContainer vh-100">
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <SearchComponent />
                   <Welcome />
                   <CarouselSection />
                 </>
