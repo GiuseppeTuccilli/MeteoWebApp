@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getWheater } from "../files/functions";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Alert, Col, Row, Spinner } from "react-bootstrap";
 
 const CurrentWheater = function () {
   const params = useParams();
   const navigate = useNavigate();
   const [wheater, setWheater] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMes, setErrorMes] = useState("");
 
   const cor = {
     lat: params.lat,
@@ -19,9 +21,12 @@ const CurrentWheater = function () {
       const data = await getWheater(cor);
       setWheater(data);
       setLoading(false);
+      setError(false);
     } catch (er) {
       console.log("errore. " + er);
       setLoading(false);
+      setError(true);
+      setErrorMes(er.toString());
     }
   };
 
@@ -35,6 +40,10 @@ const CurrentWheater = function () {
         <div className="d-flex justify-content-center">
           <Spinner variant="primary" />
         </div>
+      ) : error ? (
+        <Alert variant="danger" className="text-center">
+          {errorMes}
+        </Alert>
       ) : (
         <div className="bg-success p-3 pt-0">
           <div className="d-flex align-items-center  ">
@@ -149,7 +158,7 @@ const CurrentWheater = function () {
             </Row>
             <div className=" d-flex align-items-center justify-content-center">
               <button
-                className="btn btn-primary fw-bold fs-5 "
+                className="btn btn-primary fw-bold fs-5 rounded-pill "
                 onClick={() => {
                   navigate("/forecast/" + cor.lat + "/" + cor.lon);
                 }}

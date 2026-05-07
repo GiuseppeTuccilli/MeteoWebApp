@@ -42,7 +42,7 @@ export const getWheater = async function (cor) {
     return data;
   } catch (er) {
     console.log("errore: " + er);
-    return "errore: " + er;
+    throw new Error("errore: " + er);
   }
 };
 
