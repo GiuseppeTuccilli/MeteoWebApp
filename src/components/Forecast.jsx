@@ -88,7 +88,7 @@ const Forecast = function () {
         </Alert>
       ) : (
         <div className="bg-success p-3 pt-0">
-          <div className="d-flex align-items-center mb-2  ">
+          <div className="d-flex align-items-center mb-2">
             <div className="p-2 border border-1 border-secondary bg-secondary-subtle h4rem d-flex align-items-center flex-grow-1 justify-content-evenly">
               <h3 className="m-0">
                 name:{" "}
