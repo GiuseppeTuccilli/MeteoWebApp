@@ -10,7 +10,7 @@ const NewNavbar = function () {
     <>
       <nav
         className={
-          "position-fixed w-100 px-2 pt-2 d-lg-flex align-items-center justify-content-between pt-lg-0 overflow-y-hidden z-1 " +
+          "position-fixed w-100 px-2 pt-2 d-lg-flex align-items-center justify-content-between pt-lg-0 overflow-y-hidden z-2 " +
           (isexpanded && " height12rem")
         }
       >
