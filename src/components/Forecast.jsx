@@ -57,7 +57,6 @@ const Forecast = function () {
       setLoading(false);
       setError(false);
     } catch (er) {
-      console.log(er);
       setLoading(false);
       setError(true);
       setErrorMes(er.toString());

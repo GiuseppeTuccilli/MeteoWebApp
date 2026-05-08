@@ -23,7 +23,6 @@ const CurrentWheater = function () {
       setLoading(false);
       setError(false);
     } catch (er) {
-      console.log("errore. " + er);
       setLoading(false);
       setError(true);
       setErrorMes(er.toString());

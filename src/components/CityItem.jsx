@@ -32,7 +32,6 @@ const CityItem = function (props) {
       setCityWheater(data);
       setLoading(false);
     } catch (er) {
-      console.log(er.toString());
       setLoading(false);
       setError(true);
       setErrorMes(er.toString());

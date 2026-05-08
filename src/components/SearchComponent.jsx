@@ -23,7 +23,6 @@ const SearchComponent = function (props) {
   if (props.current !== undefined && props.current === false) {
     current = false;
   }
-  console.log(current);
 
   const navigate = useNavigate();
 
@@ -39,10 +38,9 @@ const SearchComponent = function (props) {
     try {
       const data = await getCoordinates(text);
       setResults(data);
-      console.log(data);
+
       setError(false);
     } catch (er) {
-      console.log(er);
       setError(true);
       setErrorMes(er.toString());
     }

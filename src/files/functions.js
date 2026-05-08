@@ -14,7 +14,7 @@ export const getCoordinates = async function (city) {
       throw new Error(" errore nella response");
     }
     const data = await res.json();
-    console.log(data);
+
     return data;
   } catch (er) {
     throw new Error("errore recupero coordinate " + er);
@@ -37,10 +37,9 @@ export const getWheater = async function (cor) {
       throw new Error("errore del server");
     }
     const data = await res.json();
-    console.log(data);
+
     return data;
   } catch (er) {
-    console.log("errore: " + er);
     throw new Error("errore: " + er);
   }
 };
@@ -61,10 +60,9 @@ export const getForecast = async function (cor) {
       throw new Error("errore del server");
     }
     const data = await res.json();
-    console.log(data);
+
     return data;
   } catch (er) {
-    console.log("errore: " + er);
     throw new Error("errore: " + er);
   }
 };
