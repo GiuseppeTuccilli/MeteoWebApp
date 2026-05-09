@@ -1,4 +1,4 @@
-const key = process.env.VITE_API_KEY;
+const key = import.meta.env.VITE_API_KEY;
 
 export const getCoordinates = async function (city) {
   const endpoint =
