@@ -2,7 +2,7 @@ const key = import.meta.env.VITE_API_KEY;
 
 export const getCoordinates = async function (city) {
   const endpoint =
-    "http://api.openweathermap.org/geo/1.0/direct?limit=5&q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?limit=5&q=" +
     city +
     "&appid=" +
     key +
