@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const SearchComponent = function (props) {
   const [results, setResults] = useState(null);
+  const [noResults, setNoResults] = useState(false);
   const [text, setText] = useState("");
   const [error, setError] = useState(false);
   const [errorMes, setErrorMes] = useState("");
@@ -38,10 +39,16 @@ const SearchComponent = function (props) {
     try {
       const data = await getCoordinates(text);
       setResults(data);
-
+      setSelCord({ lat: null, lon: null });
+      if (data.length === 0) {
+        setNoResults(true);
+      } else {
+        setNoResults(false);
+      }
       setError(false);
     } catch (er) {
       setError(true);
+      setNoResults(false);
       setErrorMes(er.toString());
     }
   };
@@ -82,22 +89,30 @@ const SearchComponent = function (props) {
         </Form>
         <div className="d-flex my-1 justify-content-center ">
           <button
-            disabled={(selCord.lat === null || selCord.lon === null) && true}
+            disabled={
+              (selCord.lat === null || selCord.lon === null || noResults) &&
+              true
+            }
             className={
               "btn btn-primary  fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
-              (current === false && " d-none ")
+              (current === false && " d-none ") +
+              (noResults && " opacity-0 ")
             }
             onClick={goCurrent}
           >
             Meteo <i className="bi bi-box-arrow-up-right"></i>
           </button>
           <button
-            disabled={(selCord.lat === null || selCord.lon === null) && true}
+            disabled={
+              (selCord.lat === null || selCord.lon === null || noResults) &&
+              true
+            }
             className={
               "btn btn-primary  fw-bold rounded-pill flex-grow-1  " +
               ((selCord.lat === null || selCord.lon === null) && "opacity-0 ") +
-              (forecast === false && " d-none ")
+              (forecast === false && " d-none ") +
+              (noResults && " opacity-0 ")
             }
             onClick={goForecast}
           >
@@ -110,6 +125,11 @@ const SearchComponent = function (props) {
               <Alert variant="danger" className="text-center">
                 {errorMes}
               </Alert>
+            )}
+            {noResults && (
+              <div className="list-group">
+                <h4 className="m-0 text-center">Nessuno Risultato</h4>
+              </div>
             )}
             {results !== null &&
               results.map((el) => {
